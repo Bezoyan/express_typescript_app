@@ -2,9 +2,9 @@
   "name": "projectcz",
   "version": "1.0.0",
   "description": "Node.js project with Express.js and DynamoDB by using typescript",
-  "main": "app.js",
+  "main": "app.ts",
   "scripts": {
-    "serve": "nodemon app.ts"
+    "server": "nodemon app.ts"
   },
   "author": "Zoya Bezoyan",
   "license": "ISC",
@@ -25,6 +25,5 @@
   "bugs": {
     "url": "https://github.com/Bezoyan/express_typescript_app/issues"
   },
-  "homepage": "https://github.com/Bezoyan/express_typescript_app#readme",
-  "type": "module"
+  "homepage": "https://github.com/Bezoyan/express_typescript_app#readme"
 }
