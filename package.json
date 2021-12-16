@@ -2,9 +2,11 @@
   "name": "projectcz",
   "version": "1.0.0",
   "description": "Node.js project with Express.js and DynamoDB by using typescript",
-  "main": "app.ts",
+  "main": "src/index.ts",
   "scripts": {
-    "server": "nodemon app.ts"
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/index.js",
+    "start": "concurrently npm:start:*"
   },
   "author": "Zoya Bezoyan",
   "license": "ISC",
@@ -16,6 +18,11 @@
     "typescript": "^4.5.3"
   },
   "dependencies": {
+    "@types/body-parser": "^1.19.2",
+    "@types/cookie-session": "^2.0.43",
+    "body-parser": "^1.19.1",
+    "concurrently": "^6.4.0",
+    "cookie-session": "^1.4.0",
     "express": "^4.17.1"
   },
   "repository": {
