@@ -17,12 +17,43 @@ var LoginContraller = /** @class */ (function () {
         res.send("<form method=\"POST\">\n          <div>\n            <label>Email</label>\n            <input name=\"email\"/>\n          </div>\n          <div>\n            <label>Password</label>\n            <input name=\"password\" type=\"password\"/>\n          </div>\n            <button>Submit</button>\n        </form>");
     };
     ;
+    LoginContraller.prototype.postLogin = function (req, res) {
+        var _a = req.body, email = _a.email, password = _a.password;
+        if (email && password && email === "hello@gmail.com" && password === '123456') {
+            // marked logedin
+            req.session = { loggedIn: true };
+            // redirect to the root dir
+            res.redirect('/');
+        }
+        else {
+            res.send('Invalid email or password');
+        }
+    };
+    ;
+    LoginContraller.prototype.getLogout = function (req, res) {
+        req.session = undefined;
+        res.redirect('/');
+    };
+    ;
     __decorate([
         (0, decorators_1.get)('/login'),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object, Object]),
         __metadata("design:returntype", void 0)
     ], LoginContraller.prototype, "getLogin", null);
+    __decorate([
+        (0, decorators_1.post)('/login'),
+        (0, decorators_1.bodyValidator)('email', 'password'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object, Object]),
+        __metadata("design:returntype", void 0)
+    ], LoginContraller.prototype, "postLogin", null);
+    __decorate([
+        (0, decorators_1.get)('/logout'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object, Object]),
+        __metadata("design:returntype", void 0)
+    ], LoginContraller.prototype, "getLogout", null);
     LoginContraller = __decorate([
         (0, decorators_1.controller)('/auth')
     ], LoginContraller);
